@@ -2,7 +2,7 @@ dist: xenial
 
 language: java
 
-jdk: oraclejdk8
+jdk: openjdk8
 
 arch:
   - amd64
@@ -21,6 +21,11 @@ install: true
 
 before_script:
   - pip install --user codecov
+  - JAVA_REAL_PATH=$(realpath /usr/bin/java)
+  - echo "REAL: $JAVA_REAL_PATH"
+  - export JAVA_HOME=$(dirname $(dirname $(dirname $JAVA_REAL_PATH)))
+  - echo $JAVA_HOME
+  - export PATH=$JAVA_HOME/bin:$PATH
 
 script:
   - mvn -U -B -V test --fail-at-end -Dsource.skip=true -Dmaven.javadoc.skip=true
