@@ -21,9 +21,7 @@ install: true
 
 before_script:
   - pip install --user codecov
-  - JAVA_REAL_PATH=$(realpath /usr/bin/java)
-  - echo "REAL: $JAVA_REAL_PATH"
-  - export JAVA_HOME=$(dirname $(dirname $(dirname $JAVA_REAL_PATH)))
+  - export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-${TRAVIS_CPU_ARCH}"
   - echo $JAVA_HOME
   - export PATH=$JAVA_HOME/bin:$PATH
 
