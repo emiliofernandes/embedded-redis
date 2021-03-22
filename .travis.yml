@@ -1,8 +1,6 @@
 dist: xenial
 
-language: java
-
-jdk: openjdk8
+language: generic
 
 arch:
   - amd64
@@ -11,6 +9,7 @@ arch:
 addons:
   apt:
     packages:
+      - openjdk-8-jdk
       - maven
 
 cache:
