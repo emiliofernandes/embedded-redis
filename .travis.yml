@@ -23,6 +23,7 @@ before_script:
   - pip install --user codecov
   - export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-${TRAVIS_CPU_ARCH}"
   - echo $JAVA_HOME
+  - export MAVEN_OPTS="-Djava.home=$JAVA_HOME"
   - export PATH=$JAVA_HOME/bin:$PATH
 
 script:
